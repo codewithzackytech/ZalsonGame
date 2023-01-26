@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://assets/Images/Fonts/new_theme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/Images/Fonts/new_theme2.tres" type="Theme" id=3]
+[ext_resource path="res://src/UI/Welcome.gd" type="Script" id=4]
+[ext_resource path="res://assets/Sounds/Zalson_Background_Music.mp3" type="AudioStream" id=5]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 2.0
+margin_top = 5.0
+margin_right = 1278.0
+margin_bottom = 598.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 7
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -224.5
+margin_top = 41.0
+margin_right = 224.5
+margin_bottom = 119.0
+theme = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0.909804, 0.678431, 0.227451, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 10
+text = "Zalson 3D"
+
+[node name="newGame" type="Button" parent="."]
+margin_left = 953.0
+margin_top = 133.0
+margin_right = 1244.0
+margin_bottom = 207.0
+theme = ExtResource( 3 )
+text = "New Game"
+flat = true
+clip_text = true
+
+[node name="Continue" type="Button" parent="."]
+margin_left = 962.0
+margin_top = 209.0
+margin_right = 1238.0
+margin_bottom = 269.0
+theme = ExtResource( 3 )
+text = "Continue"
+flat = true
+clip_text = true
+
+[node name="Options" type="Button" parent="."]
+margin_left = 968.0
+margin_top = 273.0
+margin_right = 1230.0
+margin_bottom = 323.0
+theme = ExtResource( 3 )
+text = "Options"
+flat = true
+clip_text = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.8336, 0 )
+stream = ExtResource( 5 )
+unit_db = 24.761
+unit_size = 60.5
+autoplay = true
+max_distance = 1006.04
+
+[connection signal="button_up" from="newGame" to="." method="_on_newGame_button_up"]

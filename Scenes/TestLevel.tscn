@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/LevelMeshes/TestLevel/rooms_geo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/LevelMeshes/TestLevel/rooms_nav.tscn" type="PackedScene" id=8]
+
+[node name="World" type="Node"]
+
+[node name="Level" type="Node" parent="."]
+
+[node name="Geometry" type="Node" parent="Level"]
+
+[node name="rooms" parent="Level/Geometry" instance=ExtResource( 3 )]
+
+[node name="Lights" type="Node" parent="Level"]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Level/Lights"]
+transform = Transform( 0.701041, -0.641467, 0.311547, 0, 0.436878, 0.899521, -0.713121, -0.630601, 0.306269, -6.19201, 6.19083, 0 )
+directional_shadow_max_distance = 200.0
+
+[node name="Collectables" type="Node" parent="Level"]
+
+[node name="Navigation" type="Navigation" parent="Level"]
+
+[node name="rooms_nav" parent="Level/Navigation" instance=ExtResource( 8 )]
+
+[node name="StartSpawn" type="Position3D" parent="."]
+transform = Transform( -0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, -0.939693, -0.730652, -0.14082, -18.2387 )

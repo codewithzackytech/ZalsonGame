@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/Images/Fonts/new_theme.tres" type="Theme" id=1]
+
+[node name="TryGame" type="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Try" type="Button" parent="."]
+margin_left = 388.0
+margin_top = 230.0
+margin_right = 909.0
+margin_bottom = 363.0
+theme = ExtResource( 1 )
+text = "Try"
+
+[node name="Try2" type="Button" parent="."]
+margin_left = 388.0
+margin_top = 360.0
+margin_right = 909.0
+margin_bottom = 491.0
+theme = ExtResource( 1 )
+text = "GO Home"

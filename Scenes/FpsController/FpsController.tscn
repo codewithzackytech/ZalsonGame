@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/FpsController/fps_controller.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/FpsController/shootray.gd" type="Script" id=2]
+[ext_resource path="res://Assets/FPS_Weapons/FpsMinigun.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/FPS_Weapons/FpsShotgun.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/FPS_Weapons/FpsUnarmed.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.4
+height = 1.4
+
+[node name="FpsController" type="KinematicBody" groups=["Player"]]
+collision_layer = 2
+collision_mask = 513
+input_ray_pickable = false
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.1, 0 )
+shape = SubResource( 1 )
+
+[node name="Tail" type="RayCast" parent="CollisionShape"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -8.91508e-09, 1.09605 )
+enabled = true
+cast_to = Vector3( 0, -0.5, 0 )
+
+[node name="Head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0 )
+
+[node name="Camera" type="Camera" parent="Head"]
+current = true
+fov = 75.0
+near = 0.01
+
+[node name="ShootRay" type="RayCast" parent="Head/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -200 )
+collision_mask = 5
+script = ExtResource( 2 )
+
+[node name="Minigun" parent="Head/Camera" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.599094, 0 )
+visible = false
+spooling_delay = 2
+
+[node name="Shotgun" parent="Head/Camera" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.190836, -0.554955, 0 )
+visible = false
+
+[node name="Unarmed" parent="Head/Camera" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, -1.20797e-07, 0, 1, 0, 1.50996e-07, 0, -0.8, 0, -1.84858, -0.166557 )
+visible = false

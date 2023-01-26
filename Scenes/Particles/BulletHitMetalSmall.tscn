@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Particles/MetalParticles.tres" type="Material" id=1]
+[ext_resource path="res://Scenes/Particles/bullet_hit.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sounds/Effects/Bullets/gun-sound-4.wav" type="AudioStream" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+vertex_color_use_as_albedo = true
+roughness = 0.0
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+size = Vector3( 0.1, 0.1, 0.1 )
+
+[node name="BulletHitMetalSmall" type="Particles"]
+lifetime = 0.4
+explosiveness = 0.8
+randomness = 0.1
+process_material = ExtResource( 1 )
+draw_pass_1 = SubResource( 2 )
+script = ExtResource( 2 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )

@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Images/Fonts/new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/UI/HomeUI.gd" type="Script" id=2]
+[ext_resource path="res://assets/Images/Fonts/new_themescore.tres" type="Theme" id=3]
+
+[node name="HomeUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Score_label" type="Label" parent="."]
+margin_left = 1052.0
+margin_top = 21.0
+margin_right = 1315.0
+margin_bottom = 68.0
+rect_rotation = -0.100037
+rect_scale = Vector2( 0.760001, 1.0009 )
+theme = ExtResource( 3 )
+text = "Score %s"
+
+[node name="Try" type="Button" parent="."]
+visible = false
+margin_left = 419.0
+margin_top = 351.0
+margin_right = 823.0
+margin_bottom = 461.0
+theme = ExtResource( 1 )
+text = "GO HOME"
+flat = true
+
+[node name="goHome2" type="Button" parent="."]
+visible = false
+margin_left = 414.0
+margin_top = 244.0
+margin_right = 818.0
+margin_bottom = 354.0
+theme = ExtResource( 1 )
+text = "Try"
+flat = true
+
+[connection signal="button_up" from="Try" to="." method="_on_Try_button_up"]
+[connection signal="focus_entered" from="Try" to="." method="_on_Try_focus_entered"]
+[connection signal="modal_closed" from="Try" to="." method="_on_Try_modal_closed"]
+[connection signal="mouse_entered" from="Try" to="." method="_on_Try_mouse_entered"]
+[connection signal="toggled" from="Try" to="." method="_on_Try_toggled"]

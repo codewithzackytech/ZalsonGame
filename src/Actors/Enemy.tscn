@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://art/mob.glb" type="PackedScene" id=1]
+[ext_resource path="res://src/Actors/Enemy.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 11.9499, 6.14947, 17.6196 )
+
+[sub_resource type="CapsuleMesh" id=4]
+
+[node name="Enemy" type="KinematicBody"]
+collision_layer = 2
+collision_mask = 31
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.0999839, 0.00179934, 0, -0.00179934, 0.0999839, 0.052595, 1.07348, 0.372254 )
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( -0.994954, -0.0344501, 0.0942311, -0.0347673, 0.999393, -0.00172767, -0.0941137, -0.00499545, -0.995548, 0.0479822, 1.42187, 0.218001 )
+visible = false
+mesh = SubResource( 4 )
+
+[node name="mob" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.611517, 0 )
